@@ -1,0 +1,17 @@
+.navBar_translucida {
+    opacity: 0.6;
+    background-color: black;
+}
+.visible {
+    opacity: 0.6;
+    visibility: visible;
+    
+}
+.invisible {
+    opacity: 0;
+    visibility:hidden;
+    
+}
+#basic-nav-dropdown > div {
+    padding: 0;
+}

@@ -1,0 +1,24 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+$primary:rgb(203, 243, 242);
+$secondary:rgb(215, 227, 227);
+$navbar-dark-color: rgb(243, 224, 224);
+$accordion-button-active-color: black;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@each $color, $value in $theme-colors {
+    .btn-#{$color} {
+      @include button-variant($value, $value,
+      // modify
+      $hover-background: darken($value, 20),
+      $hover-border: darken($value, 10),
+      $active-background: lighten($value, 10%),
+      $active-border: lighten($value, 12.5%)
+      // /modify
+      );
+    }
+  }
+
+// Then add additional custom code here

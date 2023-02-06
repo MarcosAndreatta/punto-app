@@ -1,0 +1,42 @@
+.tarjeta {
+    width: 33%;
+    height: 300px;
+    position: relative;
+    border-radius: 20px;
+}
+.tarjeta div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 0;
+    
+}
+.tarjeta a {
+    width: 180px;
+}
+.tarjeta img {
+    border-radius: 20px;
+}
+.isHovered {
+    opacity: 0;
+    transition: opacity 1s;
+}
+.boxShadow {
+    box-shadow: 0px 0px 30px 5px rgb(102, 210, 207);
+}
+.isNotHovered {
+    opacity: 1;
+    transition: opacity 1s;
+}
+@media (max-width: 760px) {
+    .tarjeta {
+        width: 100%;
+    }
+}
+@media (min-width: 760px) {
+    .card {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}

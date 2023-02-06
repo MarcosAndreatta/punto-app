@@ -1,0 +1,32 @@
+{
+  "name": "punto-app-server",
+  "version": "1.0.0",
+  "description": "Server for the Punto Papelería APP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc --watch & cd dist && nodemon index.js"
+  },
+  "author": "Marcos Andreatta",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/multer": "^1.4.7",
+    "@types/streamifier": "^0.1.0",
+    "@types/uuid": "^9.0.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^6.9.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "helmet": "^6.0.1",
+    "mongoose": "^6.9.0",
+    "multer": "^1.4.5-lts.1",
+    "streamifier": "^0.1.1",
+    "uuid": "^9.0.0"
+  }
+}

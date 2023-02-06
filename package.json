@@ -1,0 +1,16 @@
+{
+    "name": "punto-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "cd punto-app-server && npm run dev & cd punto-app-client && npm run dev",
+      "start": "cd punto-app-server && npm start & cd punto-app-client && npm start",
+      "build": "cd punto-app-client && npm run build",
+      "install":"cd punto-app-client && npm install"
+    },
+    "author": "Marcos",
+    "license": "ISC"
+  }
+  

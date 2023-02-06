@@ -1,0 +1,83 @@
+.nuestrosProductos {
+    position: fixed;
+    top: 55px;
+    width: 100%;
+    transition: top 0.7s;
+}
+
+.top0 {
+    top: 0;
+    transition: top 0.7s;
+}
+
+.punto {
+    font-size: 2em;
+    color: #33afb5
+}
+
+.sidenav {
+    min-height: 100vh;
+    /* 100% Full-height */
+    
+    /* 0 width - change this with JavaScript */
+    
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+
+    background-color: white;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 1rem;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 310px;
+}
+.sidenav > div {
+width: 90%;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.offCanvasContainer {
+    min-height: 100vh;
+    width: 0;
+    position: absolute;
+    top: 56px;
+    transition: 0.5s;
+    background-color: rgba(0, 0, 0, 0.397);
+    display: flex;
+    justify-content: flex-start;
+    backdrop-filter: blur(5px);
+}
+.closed {
+    width: 0;
+}
+.opened {
+    width: 100%;
+}
