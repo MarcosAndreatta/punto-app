@@ -1,28 +1,52 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { FormEvent, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+
 import { Responses } from "../../types";
 const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => {
-    const [formState, setFormState] = useState<{
+    
+    const [formStateWithoutFileField, setFormWhitoutFileField] = useState<{
         nombre: string;
         descripcion: string;
-        precio: number;
-        stock: number;
-        categoria: string
+        precio: string;
+        stock: string;
+        categoria: string;
     }>({
         nombre: "",
         descripcion: "",
         categoria: "",
-        precio: 0,
-        stock: 0
+        precio: "0",
+        stock: "0",
     });
+    const [formFileFieldState, setFormFieldState] = useState<{
+        [key: string]: Blob[]
+    }>({fotos: []});
     const onChangeHandler = (event: any) => {
-        setFormState((prevState) => {
-            return { ...prevState, [event.target.name]: event.target.value}
-        })
+        if (event.target.name === "fotos") {
+            setFormFieldState((prevState) => {return {...prevState, [event.target.name]: event.target.files}})
+        
+        } else {
+            setFormWhitoutFileField((prevState) => {           
+                return { ...prevState, [event.target.name]: event.target.value}
+            })
+        }
+        
     };
-    const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(formState)
+        const formData = new FormData();
+        for (let field in formStateWithoutFileField) {
+            formData.append(field, formStateWithoutFileField[field as keyof typeof formStateWithoutFileField])
+        }
+        for (let fieldName in formFileFieldState) {
+            for (let i=0; formFileFieldState[fieldName].length > i; i++) {
+                formData.append(fieldName, formFileFieldState[fieldName][i])
+            }
+            
+        }
+        //formData.forEach((value, key) => {console.log(key, value)})
+         axios.post(`${process.env.NEXT_PUBLIC_URL}/productos/crearProducto`, formData)
+        
     };
     return (
         <Container fluid="sm">
@@ -31,33 +55,31 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
             <Form onSubmit={onSubmitHandler} encType="multipart/form-data">
                 <Form.Group id="inputNombre">
                     <Form.Label htmlFor="inputNombre">Nombre</Form.Label>
-                    <Form.Control onChange={onChangeHandler} value={formState.nombre}  name="nombre" id="inputNombre" placeholder="Ingrese nombre" type="text">
+                    <Form.Control onChange={onChangeHandler} value={formStateWithoutFileField.nombre}  name="nombre" id="inputNombre" placeholder="Ingrese nombre" type="text">
 
                     </Form.Control>
                 </Form.Group>
                 <Form.Group id="inputDescripcion">
                     <Form.Label  htmlFor="inputDescripcion">Descripcion</Form.Label>
-                    <Form.Control onChange={onChangeHandler} value={formState.descripcion} name="descripcion" id="inputDescripcion" placeholder="Ingrese descripcion" type="text">
+                    <Form.Control onChange={onChangeHandler} value={formStateWithoutFileField.descripcion} name="descripcion" id="inputDescripcion" placeholder="Ingrese descripcion" type="text">
 
                     </Form.Control>
                     </Form.Group>
                 <Form.Group>
                     <p>Ingrese imagenes</p>
-                    <Form.Control  name="fotos" id="fotos1" type="file">
+                    <Form.Control onChange={onChangeHandler} multiple name="fotos" id="fotos" type="file">
                     
                     </Form.Control>
-                    <Form.Control  name="fotos" id="fotos2" type="file">
                     
-                    </Form.Control>
                 
                 </Form.Group>
                 <Form.Group>
                     <Form.Label  htmlFor="inputPrecio">Precio</Form.Label>
-                    <Form.Control onChange={onChangeHandler} value={formState.precio} name="precio" id="precio" type="number"></Form.Control>
+                    <Form.Control onChange={onChangeHandler} value={formStateWithoutFileField.precio} name="precio" id="precio" type="number"></Form.Control>
                 </Form.Group>
                 <Form.Group>
                     <Form.Label htmlFor="inputStock">Stock</Form.Label>
-                    <Form.Control onChange={onChangeHandler} value={formState.stock} name="stock" id="stock" type="number"></Form.Control>
+                    <Form.Control onChange={onChangeHandler} value={formStateWithoutFileField.stock} name="stock" id="stock" type="number"></Form.Control>
                 </Form.Group>
                 <Form.Group >
                 {props.categorias.datos.map((categoria) => {return (
@@ -67,7 +89,7 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
                             name="categoria" 
                             type="radio" 
                             id={categoria._id} 
-                            checked={formState.categoria === categoria.nombre} 
+                            checked={formStateWithoutFileField.categoria === categoria.nombre} 
                             value={categoria.nombre} 
                             label={categoria.nombre}/>
                     </div>

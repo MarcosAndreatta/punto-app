@@ -62,6 +62,6 @@ export default class GeneralMiddleware {
             },
         }));
         this.app.disable("x-powered-by");
-        this.app.use(multerMiddleware.any())
+        this.app.use(multerMiddleware.array("fotos"))
     }
 }
