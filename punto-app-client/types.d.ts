@@ -11,14 +11,20 @@ namespace States {
             estaEnZonaOscura: boolean;
             estaExpandida: boolean
         }
-        interface backDrop {
-            visible: boolean
+        interface Informador {
+            mensaje: string;
+            esVisible: boolean;
+            variante: "info" | "warning" | "danger" | "success" | null
         }
     }
 }
 namespace Payloads {
     namespace InterfazGrafica {
-        type backDrop = boolean;
+        interface Informador {
+            visibilidad: boolean;
+            mensaje: string;
+            //variante: "info" | "warning" | "danger" | "success" | null
+        }
     }
 }
 namespace Entidades {

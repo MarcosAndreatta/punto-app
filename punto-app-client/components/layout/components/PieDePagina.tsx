@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logoPunto from "../../../public/logoPunto.jpg";
+import logoPunto from "../../../public/logo_transparent_background.png";
 import styles from "./Footer.module.css";
 const PiePagina: React.FC = () => {
     return <section id={styles.footer}>

@@ -24,7 +24,8 @@ const productoSchema = new mongoose_1.Schema({
     },
     categoria: {
         type: mongoose_1.Schema.Types.ObjectId,
-        required: [true, "Se debe ingresar categoria"]
+        required: [true, "Se debe ingresar categoria"],
+        ref: "Categoria"
     }
 });
 exports.default = productoSchema;

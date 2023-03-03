@@ -41,14 +41,14 @@ namespace ExpressTypes {
     namespace Response {
         interface Producto {
             datos: any | any[];
-            mensaje: string
+            mensaje: string;
         }
         interface Categoria {
             datos: any[] | any;
             mensaje: string;
         }
         interface Error {
-            mensaje: string
+            mensaje: string;
         }
     }
 }

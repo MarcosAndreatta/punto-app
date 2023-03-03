@@ -1,4 +1,5 @@
 import React from "react";
+import Informador from "./components/Informador";
 import Navbar_ from "./components/Navbar";
 
 import PiePagina from "./components/PieDePagina";
@@ -12,6 +13,7 @@ const Layout: React.FC<layoutProps> = (props) => {
         <Navbar_ />
         {/* All the stuff will come here */}
         {props.children}
+        <Informador />
         <PiePagina />
     </React.Fragment>
 };

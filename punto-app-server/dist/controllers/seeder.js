@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const models_1 = require("../models");
-mongoose_1.default.connect("mongodb://127.0.0.1:27017/puntoApp");
+mongoose_1.default.connect("mongodb+srv://rey_xeneise:miramira@punto-app.ctg4ncb.mongodb.net/?retryWrites=true&w=majority");
 const db = mongoose_1.default.connection;
 const crearProducto = () => __awaiter(void 0, void 0, void 0, function* () {
     try {

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { States } from "../../../../types";
-import { RootState } from "../../index";
+
 const initialNavBarState: States.InterfazGrafica.navBar = {
     "bg-white": false,
     "bg-dark": false,

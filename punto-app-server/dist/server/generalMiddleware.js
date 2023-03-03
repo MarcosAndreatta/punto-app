@@ -8,12 +8,7 @@ const cors_1 = __importDefault(require("cors"));
 const express_mongo_sanitize_1 = __importDefault(require("express-mongo-sanitize"));
 const helmet_1 = __importDefault(require("helmet"));
 const express_1 = __importDefault(require("express"));
-const multer_1 = __importDefault(require("multer"));
 const helmetUrls_1 = require("./helmetUrls");
-const googleCloudMulterCustomClass_1 = __importDefault(require("../helpers/googleCloudMulterCustomClass"));
-const multerMiddleware = (0, multer_1.default)({
-    storage: new googleCloudMulterCustomClass_1.default()
-});
 class GeneralMiddleware {
     constructor(app) {
         this.app = app;
@@ -21,7 +16,8 @@ class GeneralMiddleware {
         this.callGeneralMiddleware();
     }
     callMongoose() {
-        mongoose_1.default.connect(process.env.DB ? process.env.DB : "mongodb://localhost:27017/puntoApp");
+        mongoose_1.default.set("strictQuery", false);
+        mongoose_1.default.connect(process.env.DB ? process.env.DB : "mongodb+srv://rey_xeneise:miramira@punto-app.ctg4ncb.mongodb.net/?retryWrites=true&w=majority");
         const db = mongoose_1.default.connection;
         db.on("error", () => { console.error.bind(console, "connection error"); });
         db.on("open", () => { console.log("Database connected"); });
@@ -59,7 +55,6 @@ class GeneralMiddleware {
             },
         }));
         this.app.disable("x-powered-by");
-        this.app.use(multerMiddleware.array("fotos"));
     }
 }
 exports.default = GeneralMiddleware;

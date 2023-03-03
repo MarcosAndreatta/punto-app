@@ -8,47 +8,44 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const models_1 = require("../../models");
-const crearProductoHandler = (req, res, next) => {
-    console.log(req.files);
-    console.log(req.body);
-    // const subirArchivos = async (files: typeof req.files) => {
-    //     return new Promise ((resolve, reject) => {
-    //         for (let i=0; i < files!.length; i++) {
-    //             const blob = bucket.file(files![i].originalname as string);
-    //             console.log(blob)
-    //             const blobStream = blob.createWriteStream()
-    //             streamifier.createReadStream(files[i].buffer)
-    //             .pipe(blobStream)
-    //             .on("finish", (respuesta) => {
-    //                 archivosSubidos.push(respuesta)
-    //             })
-    //             .on("error", (error) => {reject(error)})
-    //             if (archivosSubidos.length === req.files?.length) {resolve(archivosSubidos)}
-    //         }
-    //     })
-    // }
-    // subirArchivos(req.files)
-    // .then((value) => {
-    // }).catch((error) => {console.log(error)})
-    const crearProducto = () => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            const { nombre, imagenes, descripcion, precio, stock, categoria } = req.body;
-            const producto = new models_1.Producto({
-                nombre,
-                imagenes,
-                descripcion,
-                precio,
-                stock,
-                categoria
-            });
-            yield producto.save();
-            res.status(201).json({ mensaje: "Producto creado" });
-        }
-        catch (e) {
-            console.log(e);
-        }
-    });
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.default = crearProductoHandler;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.nuevoProductoFotosHandler = exports.crearProductoHandler = void 0;
+const models_1 = require("../../models");
+const multer_1 = __importDefault(require("multer"));
+const AppError_1 = require("../../server/AppError");
+const googleCloudMulterCustomClass_1 = __importDefault(require("../../helpers/googleCloudMulterCustomClass"));
+const multerMiddleware = (0, multer_1.default)({
+    storage: new googleCloudMulterCustomClass_1.default()
+});
+const crearProductoHandler = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { nombre, descripcion, categoriaId, precio, stock } = req.body;
+        const filesArray = [];
+        for (let i = 0; req.files.length > i; i++) {
+            filesArray.push(req.files[i].filename);
+        }
+        const categoriaAsignada = yield models_1.Categoria.findById(categoriaId);
+        const nuevoProducto = new models_1.Producto({
+            nombre,
+            imagenes: filesArray,
+            descripcion,
+            precio: parseFloat(precio),
+            stock: parseFloat(stock),
+            categoria: categoriaAsignada
+        });
+        const productoGuardado = yield nuevoProducto.save();
+        const response = {
+            mensaje: "Producto creado",
+            datos: productoGuardado
+        };
+        res.status(200).json(response);
+    }
+    catch (e) {
+        next(new AppError_1.AppError(500, `Error al guardar nuevo producto: ${e}`));
+    }
+});
+exports.crearProductoHandler = crearProductoHandler;
+exports.nuevoProductoFotosHandler = multerMiddleware.array("fotos");

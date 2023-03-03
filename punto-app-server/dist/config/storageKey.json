@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "punto-app-server-377223",
+  "private_key_id": "331105840949c2b4a87b5504464d5b928d2bd763",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3DyGMO3iizXin\n2L31zMdE52no1oOGqPveUD86X7aToEti2amOzTAd9TYSgKQfF8jOlmrX0o2LG/Pw\nPhwfaqTcxaRN4K62eG2nN728UZ1BM5zbN5uBqSTLhHBxvXlSw7duYb4N4awvo2Vd\ngc/GjjkOilb/4UFh8zE4Qf/3kmbeKIIi/BE5r7NJMehMPLIu3c0+8X0Vce5rFeEu\nD0TGHbOpH90hLDU+WkITTfeaaI6Y6OpUZP2B7yG8qNZnkUFl0D14a+hhNe7d+eL7\nRkzS0av58cg1fGRDxELpIMQXNcGkd5nTHwphlTYR2ldmLI4V54KigYzUG+IuKGUz\nndeuOxv7AgMBAAECggEABY/oCPIQc83pDrYj63e9Gq33YCcO2J6CbKck8xNpoXZ7\nSk+ElEpN96ypAT3qy4EPzZ5XZ70sWZ/QG5DsWzrRZvd5/kQt7gbRuh6tw3uTwVS3\ncH4lJpCEbDFwsAJxHcX4AsDlVlgKWpyZ3cUuEk5LxuvTW4BojRJBGoCZR1hc8Zh3\nSNyvmk+AaU2ZN/0a5i1lsS99/h/HUS1mekUA8MccxWh6rAWLYIVWDAuGAd21xjIL\nFEVu7Qp9Ign5Cm6SS7wIr+z3rFg2TWwBLPh8NyOwWwdYeoCgbJcqfeV3SvLyZYk1\nx4glb1VkJhrVEQ555dH1n2ooYmaBAOZ2Qe8YbUuk6QKBgQDuBrIfpIBwG1+PDQkc\nDYNdzMGuMoPVYAGlHCVj8lG8cc8xjMPHWmaJuJS8anu+nZ65/7AMSvDGNhywTCso\nl/sS3MphH01T2z6exdOc4etLxQ1sgXNFae2ljuH4DvgZ8x8QGThpm/3or1HwP8uY\nITt4zhTC19mPJjtdJJJ20U3VowKBgQDE4dzJ3wqU50r1yEFlMKb7wf+TVfFe6782\nG9Px2dhW85Vp1Zxuf8bolFJnHgO3bRNIzoPb02wtGWmsADhGWg+vDgqqC0XX7jZp\n5IZlrpnyr0sJnKz91a/oYnCgwdl9GnExlKDWZYCjuc0fG1R7yVCC9iycw30jwlql\ngXsnHYgVyQKBgQCRjMChPstXQjXV2MfIQq8gzZNlvPgGo1V+LE7k5gl7LTDggM46\n+hmXf6pb6NVQgzvLSwHREoZW/kHewETn5r+eEisi5qw3aerJ1fiHh1KFm7KQtjvR\np2utgEjHkge+fn9xLarkUYIbJhH50ljh5vhh78qcNrePpHZKh5GUXHq29wKBgFxJ\ngzUdV9h0kq6jMAQ+ygc46JQntPzJhNfYM4EqnD4l7+OsPaeOPa7H19h+OT/B4Ug/\nhY+Fiy+Yue/mKnrPvIpSCq2qmxKcluUMOfNv5LndcU8QIgbaI5rKigDQ3SHHQ0f6\nY2ocKjCU55GtPezIcPTyb/cLq50XfWYXS6MKNMABAoGAYG2zeGC6MaeDK5E0ISjw\nprRnK6rF6AxKdfJKw6cM/Kxud6lRIFvL+BVNTIWmbdutOjAsCF4dSGr0sGFpHfpo\nzYqb85M+ul+9uI7t0EIIvMvfj5HX1hF0dP/X8DZ6QGel9Ex1azLAIOksF7lLy17u\ncgUNZ/xQ/Huuu2LNsGVJKjM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "puntobucketstoragefornodeserve@punto-app-server-377223.iam.gserviceaccount.com",
+  "client_id": "116390172227824557810",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/puntobucketstoragefornodeserve%40punto-app-server-377223.iam.gserviceaccount.com"
+}

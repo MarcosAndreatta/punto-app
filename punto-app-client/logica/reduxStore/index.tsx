@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import informadorReducer from './slices/interfazGrafica/informador';
 import navBarReducer from './slices/interfazGrafica/navBar';
-import backDropReducer from './slices/interfazGrafica/backDrop';
 export const store = configureStore({
   reducer: {
     navBar: navBarReducer,
-    backDrop: backDropReducer // Read how to use an object made of reducers. Ej: reducer: {interfazGrafica: [navBar, foo]}
+    informador: informadorReducer
+    // Read how to use an object made of reducers. Ej: reducer: {interfazGrafica: [navBar, foo]}
   },
 });
 

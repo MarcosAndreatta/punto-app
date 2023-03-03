@@ -21,10 +21,10 @@ class MulterGoogleCloudStorage {
             filename: ""
         };
         this.gcsStorage = new storage_1.Storage({
-            projectId: "punto-app-375603",
-            keyFilename: path_1.default.join(__dirname, "../config/keys.json")
+            projectId: "punto-app-server-377223",
+            keyFilename: path_1.default.join(__dirname, "../config/storageKey.json")
         });
-        this.gcsBucket = this.gcsStorage.bucket("punto-app-bucket");
+        this.gcsBucket = this.gcsStorage.bucket("punto-server-app-bucket");
     }
     _handleFile(req, file, callback) {
         if (this.setBlobFile(req, file)) {

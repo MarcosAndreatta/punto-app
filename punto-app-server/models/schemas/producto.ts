@@ -22,7 +22,8 @@ const productoSchema = new Schema({
     },
     categoria: {
         type: Schema.Types.ObjectId,
-        required: [true, "Se debe ingresar categoria"]
+        required: [true, "Se debe ingresar categoria"],
+        ref: "Categoria"
     }
 });
 export default productoSchema

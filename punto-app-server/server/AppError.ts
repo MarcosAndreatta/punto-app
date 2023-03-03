@@ -10,5 +10,5 @@ export const errorMiddleware: ErrorRequestHandler = (error: AppError, req: Reque
     const response: ExpressTypes.Response.Error = {
         mensaje: error.message
     };
-    res.status(error.status).json(response)
+    return res.status(error.status).json(response)
 };

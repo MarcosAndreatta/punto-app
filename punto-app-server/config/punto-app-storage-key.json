@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "punto-app-server",
+  "private_key_id": "a80cb189f5d563fb52f9258c724f7e10bfe59b75",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCjvzyi1TD8b7bs\n2pA7ACScA7mYkMAh8ttLpoVGBCFO9omz0tM5IYscZQ6Csp3czDP1fJbRX5zGLrFu\n4ZZ3R9DPHfa52QC4/tu3xtIQIQn5iORJOv/VJN4oQQoHQ8qjA+7S4JQPDomOA9yb\nDZXmONdKxw2qVZaKjsVSCygHEBwLaGF8ogIkocdQkBV/J13zubrt8PsQZQ07kCZ4\niW4ew6d2I0UtZNiX9ijiccUhHRL6KVTlI2mK0M+1zUW4IV0nuek75e3UkcsFrvzn\nMOZVw8wPh9qNNWGJPXU7jSmrMU+FsnzKJP/WmbyrLnyW33EuyogCgosuniG+OC5R\nYggqPLNHAgMBAAECggEADd4JYRLj/KTrXXYJu+1rAZ7GeNddZiKelB1h8Qgy1/Ca\nFdViF6xcZHG3KmC9F3C1v8b8MMwY8fxiAMLFuYv78OZtOYJZWia/QyTpL6jUouzc\nbx/k1aSzKb6O/lwtN46tiu9Y//NvuSFg7UKtHLEDTpe6nl/JiX9w0jNpVuZ0MY+p\nObda/P2C/tenIAtZHicP48ffWvmELblIVhslR5Hp0ITu8Nl2lnpLrmTV80wpg+y+\nSrnBxxS1zQXA7430jFKSzHkggO7cQDlHnUBIe51a3k9OXY0OcwsYy9zcD0jP/qcd\n9jR7oXn2srRE6+jM9OWT8o2B6S/fy+ea3MU7v2daGQKBgQDXjcKjd0bFIRFNJR2F\nv3ZMLJqJJvvNvHv4HdrsYhYXZ282J+QAP1TC9R0ikP23W+RwWJOMLn7kfbivcwKH\nkhE0AUcTkinsuEgnhfkanf5D3kicJNXmMu5lTgPcIYlAfp9ay8YgWMOf7jazh5Th\nFVU3zxrmpe2tEHJR8aer1+QsWQKBgQDCeOmXp/GLg2eZR66aMnTMrh1YDO7fPQW1\n46RpJni3f0hMOUJ6yub2WatNio8sQm415jASNjDWZAT3z0LqHNhTfQ8XLAqgXFJW\nqn3o80W2o9vl/EiC+0ePGHyVbo5wXDFaxhH5q1GWe/66ozP7uuib+FQuA+AUkKZQ\nh4tpmWlonwKBgC/w54lTzfmqER8HUjmdC8KFaRl4AikP8sKMYVSRvDgYWTPCS4OC\nkmeJ/KDjfop5daVHDgnvjWlkTN84xSdB5XGblyNTLt/nXKTttymkWhjeJ2gTCT/Z\ntAvz/gfHra8aenbHO5mWJGw9nwzu6r3k8L8o4OLLpMEJF2QCSzh9G9KBAoGBAMA9\nqKS7ZyKD/phebPKPKDjhca6F8miJuShp5S/w0OqMD1sSS255P0GNuLJJY2jcLnhn\nmWOXYEW+z85se3hUlWBKwu0kI0kMmnSDyz3JpkN6zbkW4FNitQV2rklF5daavEtA\ne6p0OY3p+xBintOcm677F7P5Lr0FlPMMWrtD5Rh/AoGAeJx1emvCUa/Fw0nfxqCf\nBJBULwHzgKDFhAun3MtnsA5oFfoxAMORAJSa52qrhc2UtkTpahioVvkn34D9+v8O\nCFndUH5s4KhO5AulnhnARNe7bAC+uugHNev+thFNcswbthVzNFTdzDM6jLkBdH+8\n/yaaOIeXciVKhD9CP9hTR3M=\n-----END PRIVATE KEY-----\n",
+  "client_email": "punto-app-storage-cloud-upload@punto-app-server.iam.gserviceaccount.com",
+  "client_id": "114196035032796690766",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/punto-app-storage-cloud-upload%40punto-app-server.iam.gserviceaccount.com"
+}

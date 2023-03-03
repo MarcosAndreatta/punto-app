@@ -16,7 +16,7 @@ const obtenerProductosHandler = (req, res, next) => __awaiter(void 0, void 0, vo
         const productos = yield models_1.Producto.find();
         const response = {
             datos: productos,
-            mensaje: "Productos encontrador"
+            mensaje: "Productos encontrados"
         };
         res.status(200).json(response);
     }

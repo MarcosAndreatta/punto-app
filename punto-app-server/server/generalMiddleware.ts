@@ -4,17 +4,13 @@ import cors from "cors";
 import ExpressMongoSanitize from "express-mongo-sanitize";
 import helmet from "helmet";
 import express from "express";
-import multer from "multer";
+
 import {
   scriptSrcUrls,
   styleSrcUrls,
   connectSrcUrls,
   fontSrcUrls,
 } from "./helmetUrls";
-import MulterGoogleCloudStorage from "../helpers/googleCloudMulterCustomClass";
-const multerMiddleware = multer({
-    storage: new MulterGoogleCloudStorage()
-});
 
 export default class GeneralMiddleware {
     app: Express;
@@ -24,10 +20,12 @@ export default class GeneralMiddleware {
         this.callGeneralMiddleware()
     }
     private callMongoose () {
-        mongoose.connect(process.env.DB ? process.env.DB as string : "mongodb://localhost:27017/puntoApp");
+        mongoose.set("strictQuery", false);
+        mongoose.connect(process.env.DB ? process.env.DB as string : "mongodb+srv://rey_xeneise:miramira@punto-app.ctg4ncb.mongodb.net/?retryWrites=true&w=majority");
         const db = mongoose.connection;
         db.on("error", () => {console.error.bind(console, "connection error")});
         db.on("open", () => {console.log("Database connected")});
+        
     }
     private callGeneralMiddleware () {
         //cors
@@ -62,6 +60,5 @@ export default class GeneralMiddleware {
             },
         }));
         this.app.disable("x-powered-by");
-        this.app.use(multerMiddleware.array("fotos"))
     }
 }

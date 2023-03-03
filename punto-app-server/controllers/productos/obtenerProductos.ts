@@ -7,7 +7,7 @@ const obtenerProductosHandler = async (req: Request, res: Response, next: NextFu
         const productos = await Producto.find();
         const response: ExpressTypes.Response.Producto = {
             datos: productos,
-            mensaje: "Productos encontrador"
+            mensaje: "Productos encontrados"
         };
         res.status(200).json(response)
     } catch (e) {next(new AppError(500, `Error al obtener productos: ${e}`))}

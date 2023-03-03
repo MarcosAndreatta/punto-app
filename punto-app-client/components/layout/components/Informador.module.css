@@ -1,0 +1,23 @@
+.informador {
+    position: fixed;
+  bottom: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0px;
+  right: 0px;
+}
+.transition-enter {
+  opacity: 0  ;
+}
+.transition-enter-active {
+  opacity: 20;
+  transition: opacity 1s linear;
+}
+.transition-exit {
+  opacity: 20;
+  
+}
+.transition-exit-active {
+  opacity: 0;
+  transition: opacity 1s linear;
+}

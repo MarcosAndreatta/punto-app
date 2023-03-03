@@ -31,7 +31,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       await callBootstrap();
     };
     callFrameworks();
-    
+
   }, []);
   const variantes = {
     pageInitial: { opacity: 0 },
@@ -44,17 +44,17 @@ export default function App({ Component, pageProps, router }: AppProps) {
     {$(document).foundation()}
     </Script> */}
     <SSRProvider>
-    <Provider store={store}>
-      <Layout>
-        <React.Fragment>
-          
+      <Provider store={store}>
+        <Layout>
+          <React.Fragment>
+
             <motion.div id='motionDiv' key={router.asPath} variants={variantes} initial="pageInitial" animate="pageAnimate">
-            <Component {...pageProps} />
-          </motion.div>
-          
-        </React.Fragment>
-      </Layout>
-    </Provider>
+              <Component {...pageProps} />
+            </motion.div>
+
+          </React.Fragment>
+        </Layout>
+      </Provider>
     </SSRProvider>
   </React.Fragment>
 }

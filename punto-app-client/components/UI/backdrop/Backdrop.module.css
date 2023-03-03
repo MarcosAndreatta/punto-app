@@ -1,9 +1,0 @@
-.invisible {visibility: hidden;}
-#backdrop {
-    position: relative;
-    background-color: blue;
-    opacity: 0.5;
-    width: 100hw;
-    height: 100vw;
-    z-index: 1;
-}

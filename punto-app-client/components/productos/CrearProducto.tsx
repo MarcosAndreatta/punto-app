@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { FormEvent, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
-
+import { useAppDispatch, useAppSelector} from "../../logica/reduxStore/customizedHooks";
+import { informadorActions } from "../../logica/reduxStore/slices/interfazGrafica/informador";
 import { Responses } from "../../types";
 const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => {
+    const informadorState = useAppSelector((state) => { return state.informador });
+    const dispatcher = useAppDispatch();
     
     const [formStateWithoutFileField, setFormWhitoutFileField] = useState<{
         nombre: string;
@@ -11,10 +14,12 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
         precio: string;
         stock: string;
         categoria: string;
+        categoriaId: string;
     }>({
         nombre: "",
         descripcion: "",
         categoria: "",
+        categoriaId: "",
         precio: "0",
         stock: "0",
     });
@@ -26,6 +31,12 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
             setFormFieldState((prevState) => {return {...prevState, [event.target.name]: event.target.files}})
         
         } else {
+            // event.target.id = Object.id
+            if (event.target.name === "categoria") {
+                setFormWhitoutFileField((prevState) => {
+                    return {... prevState, categoriaId: event.target.id, categoria: event.target.value}
+                })
+            }
             setFormWhitoutFileField((prevState) => {           
                 return { ...prevState, [event.target.name]: event.target.value}
             })
@@ -45,7 +56,7 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
             
         }
         //formData.forEach((value, key) => {console.log(key, value)})
-         axios.post(`${process.env.NEXT_PUBLIC_URL}/productos/crearProducto`, formData)
+        axios.post(`${process.env.NEXT_PUBLIC_URL}/productos/crearProducto`, formData)
         
     };
     return (
@@ -67,11 +78,7 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
                     </Form.Group>
                 <Form.Group>
                     <p>Ingrese imagenes</p>
-                    <Form.Control onChange={onChangeHandler} multiple name="fotos" id="fotos" type="file">
-                    
-                    </Form.Control>
-                    
-                
+                    <Form.Control onChange={onChangeHandler} multiple name="fotos" id="fotos" type="file" />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label  htmlFor="inputPrecio">Precio</Form.Label>
@@ -99,6 +106,9 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
                     Enviar
                 </Button>
             </Form>
+            <Button onClick={() => {dispatcher(informadorActions.informarFueExitoso({variante: "info", mensaje: "Prueba", visibilidad: true}))}} type="button" variant="primary">
+                    Prueba
+            </Button>
         </Container>
     )
 };

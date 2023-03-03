@@ -1,6 +1,6 @@
 import mongoose, { ObjectId } from "mongoose";
 import { Categoria, Producto } from "../models";
-mongoose.connect("mongodb://127.0.0.1:27017/puntoApp");
+mongoose.connect("mongodb+srv://rey_xeneise:miramira@punto-app.ctg4ncb.mongodb.net/?retryWrites=true&w=majority");
 const db = mongoose.connection;
 
 const crearProducto = async () => {

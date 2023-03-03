@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import borrarCategoriaHandler from "./borrarCategoria";
-import crearCategoriaHanler from "./crearCategoria";
+import {crearCategoriaHanler, nuevaCategoriaFotosHandler} from "./crearCategoria";
 import modificarCategoriaHandler from "./modificarCategoria";
 import mostrarCategoriasHanler from "./obtenerCategorias";
 class CategoriasController {
@@ -8,7 +8,7 @@ class CategoriasController {
     constructor() {
         this.router = express.Router();
         this.router.get("/obtenerCategorias", mostrarCategoriasHanler);
-        this.router.post("/crearCategoria", crearCategoriaHanler);
+        this.router.post("/crearCategoria", nuevaCategoriaFotosHandler ,crearCategoriaHanler);
         this.router.delete("/borrarCategoria", borrarCategoriaHandler);
         this.router.patch("/modificarCategoria", modificarCategoriaHandler)
     }

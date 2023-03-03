@@ -8,7 +8,7 @@
       "dev": "cd punto-app-server && npm run dev & cd punto-app-client && npm run dev",
       "start": "cd punto-app-server && npm start & cd punto-app-client && npm start",
       "build": "cd punto-app-client && npm run build",
-      "install":"cd punto-app-client && npm install"
+      "install":"cd punto-app-client && npm install && cd punto-app-server && npm install"
     },
     "author": "Marcos",
     "license": "ISC"

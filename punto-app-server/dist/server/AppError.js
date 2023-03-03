@@ -14,6 +14,6 @@ const errorMiddleware = (error, req, res, next) => {
     const response = {
         mensaje: error.message
     };
-    res.status(error.status).json(response);
+    return res.status(error.status).json(response);
 };
 exports.errorMiddleware = errorMiddleware;

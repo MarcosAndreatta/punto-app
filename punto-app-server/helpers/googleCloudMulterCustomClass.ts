@@ -23,10 +23,10 @@ export default class MulterGoogleCloudStorage implements multer.StorageEngine {
     }
     constructor () {
         this.gcsStorage = new Storage({
-            projectId: "punto-app-375603",
-            keyFilename: path.join(__dirname, "../config/keys.json")
+            projectId: "punto-app-server-377223",
+            keyFilename: path.join(__dirname, "../config/storageKey.json")
         });
-        this.gcsBucket = this.gcsStorage.bucket("punto-app-bucket")
+        this.gcsBucket = this.gcsStorage.bucket("punto-server-app-bucket")
     }
     _handleFile(
         req: Request, 

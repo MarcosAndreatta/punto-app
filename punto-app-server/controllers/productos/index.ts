@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import borrarProductosHandler from "./borrarProducto";
-import crearProductoHandler from "./crearProducto";
+import { crearProductoHandler, nuevoProductoFotosHandler } from "./crearProducto";
 import modificarProductosHandler from "./modificarProducto";
 import obtenerProductosHandler from "./obtenerProductos";
 
@@ -9,11 +9,11 @@ class ProductosController {
     constructor() {
         this.router = express.Router();
         this.router.get("/obtenerProductos", obtenerProductosHandler);
-        this.router.post("/crearProducto", crearProductoHandler);
+        this.router.post("/crearProducto", nuevoProductoFotosHandler, crearProductoHandler);
         this.router.delete("/borrarProducto", borrarProductosHandler);
         this.router.patch("/modificarProducto", modificarProductosHandler)
     }
-    get getRouter () {
+    get getRouter() {
         return this.router
     }
 };
