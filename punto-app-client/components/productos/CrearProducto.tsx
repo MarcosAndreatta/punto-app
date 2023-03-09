@@ -1,13 +1,12 @@
 import axios from "axios";
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import useHttp from "../../logica/customHooks/useHttp";
 import { useAppDispatch, useAppSelector} from "../../logica/reduxStore/customizedHooks";
 import { informadorActions } from "../../logica/reduxStore/slices/interfazGrafica/informador";
 import { Responses } from "../../types";
 const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => {
-    const informadorState = useAppSelector((state) => { return state.informador });
-    const dispatcher = useAppDispatch();
-    
+    const funcionHttp = useHttp();
     const [formStateWithoutFileField, setFormWhitoutFileField] = useState<{
         nombre: string;
         descripcion: string;
@@ -41,7 +40,6 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
                 return { ...prevState, [event.target.name]: event.target.value}
             })
         }
-        
     };
     const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -53,14 +51,12 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
             for (let i=0; formFileFieldState[fieldName].length > i; i++) {
                 formData.append(fieldName, formFileFieldState[fieldName][i])
             }
-            
         }
-        //formData.forEach((value, key) => {console.log(key, value)})
-        axios.post(`${process.env.NEXT_PUBLIC_URL}/productos/crearProducto`, formData)
-        
+        funcionHttp("post", `${process.env.NEXT_PUBLIC_URL}/productos/crearProducto`, formData)
     };
     return (
         <Container fluid="sm">
+            
             <div className="espaciador"></div>
             <h1>Formulario de carga de nuevo producto</h1>
             <Form onSubmit={onSubmitHandler} encType="multipart/form-data">
@@ -106,9 +102,6 @@ const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => 
                     Enviar
                 </Button>
             </Form>
-            <Button onClick={() => {dispatcher(informadorActions.informarFueExitoso({variante: "info", mensaje: "Prueba", visibilidad: true}))}} type="button" variant="primary">
-                    Prueba
-            </Button>
         </Container>
     )
 };

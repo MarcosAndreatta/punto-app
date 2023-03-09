@@ -17,7 +17,6 @@ import { motion } from 'framer-motion';
 //Redux stuff
 import { Provider } from 'react-redux';
 import { store } from '../logica/reduxStore';
-import Backdrop from '../components/UI/backdrop/Backdrop';
 //</>
 
 export default function App({ Component, pageProps, router }: AppProps) {

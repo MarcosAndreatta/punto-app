@@ -5,6 +5,7 @@ import multer from "multer";
 import { ParamsDictionary } from "express-serve-static-core";
 import { ParsedQs } from "qs";
 import path from "path";
+import { AppError } from "../server/AppError";
 
 export default class MulterGoogleCloudStorage implements multer.StorageEngine {
     private gcsBucket: Bucket;
@@ -21,7 +22,7 @@ export default class MulterGoogleCloudStorage implements multer.StorageEngine {
             .replace(/\r|\n| /g, "_");
         return true
     }
-    constructor () {
+    constructor() {
         this.gcsStorage = new Storage({
             projectId: "punto-app-server-377223",
             keyFilename: path.join(__dirname, "../config/storageKey.json")
@@ -29,19 +30,22 @@ export default class MulterGoogleCloudStorage implements multer.StorageEngine {
         this.gcsBucket = this.gcsStorage.bucket("punto-server-app-bucket")
     }
     _handleFile(
-        req: Request, 
-        file: Express.Multer.File, 
+        req: Request,
+        file: Express.Multer.File,
         callback: (error?: Error | null, info?: Partial<Express.Multer.File> | undefined) => void): void {
         if (this.setBlobFile(req, file)) {
             const blobName = this.blobfile.filename;
             const blob = this.gcsBucket.file(blobName);
             const blobStream = blob.createWriteStream();
             file.stream
-            .pipe(blobStream)
-            .on("finish", () => {
-                callback(null, {filename: blob.publicUrl(), size: blob.metadata.size})
-            })
-        }        
+                .pipe(blobStream)
+                .on("error", () => {callback(new AppError(500, "There was an error saving the file"))})
+                .on("finish", () => {
+                    blob.makePublic().then((response) => {console.log("From multer class:", response)});
+                    callback(null, { filename: blob.publicUrl(), size: blob.metadata.size })
+                });
+            
+        }
     }
     _removeFile(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, file: Express.Multer.File, callback: (error: Error | null) => void): void {
         if (this.setBlobFile(req, file)) {

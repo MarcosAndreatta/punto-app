@@ -1,4 +1,5 @@
 import React from "react";
+
 import Informador from "./components/Informador";
 import Navbar_ from "./components/Navbar";
 
@@ -10,6 +11,7 @@ interface layoutProps {
 
 const Layout: React.FC<layoutProps> = (props) => {
     return <React.Fragment>
+            
         <Navbar_ />
         {/* All the stuff will come here */}
         {props.children}

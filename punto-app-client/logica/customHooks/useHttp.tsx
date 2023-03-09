@@ -15,6 +15,12 @@ const useHttp = () => {
                 }
                 break;
             case "post":
+                try {
+                    const response = await axios.post(url, data);
+                    dispatcher(informadorActions.informarFueExitoso({mensaje: response.data.mensaje, visibilidad: true}))
+                } catch (e: any) {
+                    dispatcher(informadorActions.informarError({mensaje: e.response.data.mensaje as string, visibilidad: true}))
+                }
                 break;
             case "delete":
                 break;

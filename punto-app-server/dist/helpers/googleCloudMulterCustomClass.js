@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
 const storage_1 = require("@google-cloud/storage");
 const path_1 = __importDefault(require("path"));
+const AppError_1 = require("../server/AppError");
 class MulterGoogleCloudStorage {
     setBlobFile(req, file) {
         const extension = file.mimetype.split("/")[1].split(";")[0];
@@ -33,7 +34,9 @@ class MulterGoogleCloudStorage {
             const blobStream = blob.createWriteStream();
             file.stream
                 .pipe(blobStream)
+                .on("error", () => { callback(new AppError_1.AppError(500, "There was an error saving the file")); })
                 .on("finish", () => {
+                blob.makePublic().then((response) => { console.log("From multer class:", response); });
                 callback(null, { filename: blob.publicUrl(), size: blob.metadata.size });
             });
         }
