@@ -13,7 +13,7 @@ const models_1 = require("../../models");
 const AppError_1 = require("../../server/AppError");
 const obtenerProductosHandler = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const productos = yield models_1.Producto.find();
+        const productos = yield models_1.Producto.find().populate("categoria");
         const response = {
             datos: productos,
             mensaje: "Productos encontrados"

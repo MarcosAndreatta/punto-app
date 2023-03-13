@@ -3,8 +3,6 @@ import { useAppDispatch, useAppSelector } from "../../logica/reduxStore/customiz
 import { navBarActions } from "../../logica/reduxStore/slices/interfazGrafica/navBar";
 import styles from "./ProductosDeCategoria.module.css";
 import { Leckerli_One } from "@next/font/google";
-import { createProxyProxy } from "immer/dist/internal";
-import { propTypes } from "react-bootstrap/esm/Image";
 import Image, { StaticImageData } from "next/image";
 interface ProductosProps {
     nombre: string;

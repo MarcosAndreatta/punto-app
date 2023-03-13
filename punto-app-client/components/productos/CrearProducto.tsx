@@ -5,7 +5,7 @@ import useHttp from "../../logica/customHooks/useHttp";
 import { useAppDispatch, useAppSelector} from "../../logica/reduxStore/customizedHooks";
 import { informadorActions } from "../../logica/reduxStore/slices/interfazGrafica/informador";
 import { Responses } from "../../types";
-const CrearProducto: React.FC<{ categorias: Responses.Categoria }> = (props) => {
+const CrearProducto: React.FC<{ categorias: Responses.Categorias }> = (props) => {
     const funcionHttp = useHttp();
     const [formStateWithoutFileField, setFormWhitoutFileField] = useState<{
         nombre: string;

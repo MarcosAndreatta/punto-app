@@ -4,7 +4,7 @@ const ModalCustomized: React.FC<{
     children: JSX.Element;
     show: boolean;
     header: string;
-    showModalHandler: any
+    showModalHandler: React.Dispatch<React.SetStateAction<boolean>>
 }> = (props) => {
     return <Modal aria-labelledby="modal" show={props.show} centered>
         <Modal.Header>

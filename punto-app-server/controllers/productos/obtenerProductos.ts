@@ -4,7 +4,7 @@ import { AppError } from "../../server/AppError";
 import { ExpressTypes } from "../../types";
 const obtenerProductosHandler = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const productos = await Producto.find();
+        const productos = await Producto.find().populate("categoria");
         const response: ExpressTypes.Response.Producto = {
             datos: productos,
             mensaje: "Productos encontrados"

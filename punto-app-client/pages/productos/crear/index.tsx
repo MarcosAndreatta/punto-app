@@ -11,7 +11,7 @@ export async function getStaticProps () {
     try {
         const preliminaryData = await fetch(`${process.env.NEXT_PUBLIC_URL}/categorias/obtenerCategorias`);
         if (!preliminaryData.ok) {throw new Error("Error getting response")};
-        const response: Responses.Categoria = await preliminaryData.json();
+        const response: Responses.Categorias = await preliminaryData.json();
         return {
             props: {
                 categorias: response

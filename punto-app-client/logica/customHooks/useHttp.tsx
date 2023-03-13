@@ -19,6 +19,7 @@ const useHttp = () => {
                     const response = await axios.post(url, data);
                     dispatcher(informadorActions.informarFueExitoso({mensaje: response.data.mensaje, visibilidad: true}))
                 } catch (e: any) {
+                    console.log(e)
                     dispatcher(informadorActions.informarError({mensaje: e.response.data.mensaje as string, visibilidad: true}))
                 }
                 break;

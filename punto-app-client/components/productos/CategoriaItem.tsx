@@ -4,7 +4,7 @@ import { Accordion, Nav } from "react-bootstrap";
 import { Entidades } from "../../types";
 const CategoriaItem: React.FC<{
     eventKey: string;
-    categoria: Entidades.categoria;
+    categoria: Entidades.Categoria;
 }> = (props) => {
     return <Accordion.Item eventKey={props.eventKey}>
         <Accordion.Header>{props.categoria.nombre}</Accordion.Header>

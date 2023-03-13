@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-
+type ObjectId = string;
 namespace States {
     namespace InterfazGrafica {
         interface navBar {
@@ -28,46 +28,40 @@ namespace Payloads {
     }
 }
 namespace Entidades {
-    interface usuario {
+    type url = string;
+    interface Usuario {
+        _id: ObjectId;
         eMail: string;
         contraseña: string | null; //Verificar el tipo para contraseña
         direccion: string;
         productosComprados: string[]; //Array de productos
     }
-    interface producto {
+    interface Producto {
+        _id: ObjectId;
         nombre: string;
-        imagenes: StaticImageData[];
+        imagenes: url[];
         descripcion: string;
         precio: number;
-        stock: number
+        stock: number;
+        categoria: Categoria;
+        __v: number
     }
-    interface categoria {
+    interface Categoria {
+        _id: ObjectId;
         nombre: string;
-        imagenes: StaticImageData[];
-        productos: Entidades.producto[]
+        imagenes: url[];
+        productos: Entidades.producto[] | ObjectId[];
+        __v:number
     }
 }
 namespace Responses {
-    type ObjectId = string;
-    interface Producto {
-        datos: Array<{
-            _id: string;
-            nombre: string;
-            imagenes: string[];
-            descripcion: string;
-            precio: number;
-            stock: number;
-            categoria: ObjectId;
-        }>;
+    
+    interface Productos {
+        datos: Array<Producto>;
         mensaje: string;
     }
-    interface Categoria {
-        datos: Array<{
-            _id: string;
-            nombre: string;
-            imagenes: string[];
-            productos: ObjectId[];
-        }>;
+    interface Categorias {
+        datos: Array<Categoria>;
         mensaje: string
     }
 }

@@ -9,8 +9,8 @@ const VisualizarHomePage: React.FC<InferGetStaticPropsType<typeof getStaticProps
 export default VisualizarHomePage
 export const getStaticProps = async () => {
     try {
-        const productos = await axios.get<Responses.Producto>(`${process.env.NEXT_PUBLIC_URL}/productos/obtenerProductos`);
-        const categorias = await axios.get<Responses.Categoria>(`${process.env.NEXT_PUBLIC_URL}/categorias/obtenerCategorias`);
+        const productos = await axios.get<Responses.Productos>(`${process.env.NEXT_PUBLIC_URL}/productos/obtenerProductos`);
+        const categorias = await axios.get<Responses.Categorias>(`${process.env.NEXT_PUBLIC_URL}/categorias/obtenerCategorias`);
         return {
             props: {
                 productos: productos.data,
